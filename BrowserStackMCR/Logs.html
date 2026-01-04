@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Tail-f</title>
+</head>
+<style>
+    body { padding: 20px }
+    #logs { padding: 15px; white-space: pre; height: 500px; overflow-y: auto }
+</style>
+<body>
+    <h1>Logs</h1>
+    <div id="logs"></div>
+
+<script>
+    const logBox = document.getElementById("logs")
+    const socket = new WebSocket("ws://localhost:8100")
+
+    socket.onmessage = (event) => {
+        logBox.textContent += event.data + "\n"
+        logBox.scrollTop = logBox.scrollHeight
+    }
+
+    socket.onopen = () => logBox.textContent += "Connected to Server \n"
+    socket.onclost = () => logBox.textContent += "Disconnected from Server \n"
+
+</script>
+</body>
+</html>

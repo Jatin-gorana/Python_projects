@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Log Viewer</title>
+  <style>
+    body { font-family: monospace; padding: 20px; }
+    #logs { white-space: pre-wrap; padding: 15px; border-radius: 8px; height: 500px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+  <h2>Live Log Viewer</h2>
+  <div id="logs"></div>
+
+  <script>
+    const logBox = document.getElementById("logs");
+      const socket = new WebSocket("ws://localhost:8100");
+
+    socket.onmessage = (event) => {
+      logBox.textContent += event.data + "\n";
+      logBox.scrollTop = logBox.scrollHeight; // auto-scroll
+    };
+
+    socket.onopen = () => logBox.textContent += "Connected to server\n";
+    socket.onclose = () => logBox.textContent += "Disconnected from server\n";
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# def increment(num):
+#     try:
+#         return int(num) + 1
+#     except:
+#         raise ValueError("This is not a good wayyy!!!")
+
+
+# a = increment("4ss3")
+# # a = increment(23)
+# print(a)
+
+# while(True):
+#     print("Press q to quit")
+#     a = int(input("Enter a no: "))
+#     if a == 'q':
+#         break
+#     try:
+#         a = int(a)
+#         if a > 6:
+#             print("You entered a no greater than 6")
+#     except Exception as e:
+#         print(f"Your input resulted in an error {e}")
+
+
+# print("Thanks for playing this game")
+
+# try:
+#   print("Hello")
+# except:
+#   print("Something went wrong")
+# else:
+#   print("Nothing went wrong")  #executes with try.
+
+# try:
+#   i = int(input("Enter a number "))
+#   c = 1/i
+# except Exception as e:
+#   print(e)
+#   exit()
+# finally:
+#   print("We are done!!!")   #this executes irrespective of exit,except or error.
+
